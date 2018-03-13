@@ -115,3 +115,7 @@ FP-Growth model), and prints the first <n> rules sorted by (1) descending antece
 #### Test
 
 `tests/test_interests.py`
+
+## 2. Clustering
+
+TBA
