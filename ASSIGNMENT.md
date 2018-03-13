@@ -107,7 +107,7 @@ descending confidence.
 #### Task
 
 Using the same FP-Growth algorithm,
-write a script that computes the interest of association rules (interest = |confidence - frequency(consequent)|)  obtained
+write a script that computes the interest of association rules (interest = |confidence - frequency(consequent)|; note the absolute value)  obtained
 using min support `<s>` and min confidence `<c>` (parameters of the
 FP-Growth model), and prints the first `<n>` rules sorted by (1) descending antecedent size in association rule, and (2) descending interest.
 
