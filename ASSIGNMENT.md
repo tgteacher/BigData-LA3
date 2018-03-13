@@ -6,7 +6,7 @@ With this assignment you will get a practical hands-on of frequent
 itemsets and clustering algorithms in Spark. Before starting, you may
 want to review the following definitions and algorithms:
 1. Market-basket model, association rules, confidence, interest.
-2. kmeans algorithm
+2. kmeans clustering algorithm.
 
 Important preliminary notes:
 
@@ -40,16 +40,19 @@ your information.
 ## 1. Frequent itemsets
 
 Here we will seek to identify association rules between states to
-associate them based on their plants. For instance, "[A, B] => C" will
-mean that "Plants found in states A and B are likely to be found in
-state C". We adopt a market-basket model where the baskets are the
-plants and the items are the states. 
+associate them based on the plants that they contain. For instance,
+"[A, B] => C" will mean that "plants found in states A and B are
+likely to be found in state C". We adopt a market-basket model where
+the baskets are the plants and the items are the states. This example
+intentionally uses the market-basket model outside of its traditional
+scope to show how frequent itemset mining can be used in a variety of
+contexts.
 
 ### Data preparation
 
 #### Task
 
-Write a script that prints the first <n> rows of a DataFrame with the following columns:
+Write a script that prints the first *n* rows of a DataFrame with the following columns:
 1. <id>: the id of the basket in the data file, i.e., the line number - 1 (ids start at 0)
 2. <plant>: the name of the plant associated with the basket.
 3. <items>: the items (states) in the basket, ordered as in the data file. 
