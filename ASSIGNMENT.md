@@ -53,9 +53,9 @@ contexts.
 #### Task
 
 Write a script that prints the first *n* rows of a DataFrame with the following columns:
-1. <id>: the id of the basket in the data file, i.e., the line number - 1 (ids start at 0)
-2. <plant>: the name of the plant associated with the basket.
-3. <items>: the items (states) in the basket, ordered as in the data file. 
+1. *id*: the id of the basket in the data file, i.e., the line number - 1 (ids start at 0)
+2. *plant*: the name of the plant associated with the basket.
+3. *items*: the items (states) in the basket, ordered as in the data file. 
 
 #### Required syntax
 
