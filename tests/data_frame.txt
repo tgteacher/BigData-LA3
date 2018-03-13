@@ -1,0 +1,17 @@
++---+--------------------+--------------------+
+| id|               plant|               items|
++---+--------------------+--------------------+
+|  0|              abelia|            [fl, nc]|
+|  1|abelia x grandiflora|            [fl, nc]|
+|  2|         abelmoschus|[ct, dc, fl, hi, ...|
+|  3|abelmoschus escul...|[ct, dc, fl, il, ...|
+|  4|abelmoschus mosch...|            [hi, pr]|
+|  5|               abies|[ak, az, ca, co, ...|
+|  6|          abies alba|                [nc]|
+|  7|      abies amabilis|[ak, ca, or, wa, bc]|
+|  8|      abies balsamea|[ct, in, ia, me, ...|
+|  9|abies balsamea va...|[ct, in, ia, me, ...|
+| 10|abies balsamea va...|[me, nh, vt, va, ...|
++---+--------------------+--------------------+
+only showing top 11 rows
+
