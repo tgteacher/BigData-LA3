@@ -89,8 +89,8 @@ descending frequency. The FP-Growth model should be applied to the DataFrame com
 #### Task
 
 Using the same FP-Growth algorithm,
-write a script that prints the first <n> association rules obtained
-using min support <s> and min confidence <c> (parameters of the
+write a script that prints the first `<n>` association rules obtained
+using min support `<s>` and min confidence `<c>` (parameters of the
 FP-Growth model), sorted by (1) descending antecedent size in association rule, and (2)
 descending confidence.
 
@@ -108,8 +108,8 @@ descending confidence.
 
 Using the same FP-Growth algorithm,
 write a script that computes the interest of association rules (interest = |confidence - frequency(consequent)|)  obtained
-using min support <s> and min confidence <c> (parameters of the
-FP-Growth model), and prints the first <n> rules sorted by (1) descending antecedent size in association rule, and (2) descending interest.
+using min support `<s>` and min confidence `<c>` (parameters of the
+FP-Growth model), and prints the first `<n>` rules sorted by (1) descending antecedent size in association rule, and (2) descending interest.
 
 #### Required syntax
 
