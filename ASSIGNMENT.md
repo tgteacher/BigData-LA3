@@ -52,10 +52,10 @@ contexts.
 
 #### Task
 
-Write a script that prints the first *n* rows of a DataFrame with the following columns:
-1. *id*: the id of the basket in the data file, i.e., the line number - 1 (ids start at 0)
-2. *plant*: the name of the plant associated with the basket.
-3. *items*: the items (states) in the basket, ordered as in the data file. 
+Write a script that prints the first `<n>` rows of a DataFrame with the following columns:
+1. `<id>`: the id of the basket in the data file, i.e., its line number - 1 (ids start at 0).
+2. `<plant>`: the name of the plant associated to basket.
+3. `<items>`: the items (states) in the basket, ordered as in the data file. 
 
 #### Required syntax
 
@@ -71,8 +71,8 @@ Write a script that prints the first *n* rows of a DataFrame with the following 
 
 Using the FP-Growth algorithm from the ML library (see
 [here](http://spark.apache.org/docs/latest/ml-frequent-pattern-mining.html)),
-write a script that prints the first <n> frequent itemsets obtained
-using min support <s> and min confidence <c> (parameters of the
+write a script that prints the first `<n>` frequent itemsets obtained
+using min support `<s>` and min confidence `<c>` (parameters of the
 FP-Growth model), sorted by (1) descending itemset size, and (2)
 descending frequency. The FP-Growth model should be applied to the DataFrame computed in the previous task.
 
