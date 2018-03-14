@@ -239,4 +239,4 @@ task, obtained with R's 'maps' package (Canadian provinces, Alaska and
 Hawaii couldn't be represented). The classes seem to make sense from a
 geographical point of view!
 
-![kmeans result](https://drive.google.com/open?id=1jvXbCu_Siw_yNgW5mOhhFPSa4Mb1VcFj)
+![kmeans result](https://users.encs.concordia.ca/~tglatard/teaching/big-data/winter-2018/images/states.png)
