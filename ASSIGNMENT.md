@@ -124,9 +124,9 @@ FP-Growth model), and prints the first `<n>` rules sorted by (1) descending ante
 We will now cluster the states based on the plants that they contain,
 using the kmeans algorithm that we will re-implement. States will be
 represented by a vector of binary components (0/1) of dimension `D`,
-where `D` is the number of plants in the data file. The `i` coordinate
+where `D` is the number of plants in the data file. Coordinate `i`
 in a state vector will be 1 if and only if the `ith` plant in the
-dataset is present in the state (plants are ordered alphabetically, as
+dataset was found in the state (plants are ordered alphabetically, as
 in the dataset). For simplicity, we will initialize the kmeans
 algorithm randomly.
 
@@ -136,8 +136,9 @@ algorithm randomly.
 
 Write a script that:
 1. creates an RDD in which every element is a dictionary representing a state with the following keys and values:
+
 | Key    | Value |
-|--------|:------:|
+|--------|------|
 | `name` | abbreviation of the state|
 | `<plant>` | 1 if `<plant>` occurs in the state, 0 otherwise|
 
