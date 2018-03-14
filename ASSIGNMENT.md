@@ -121,4 +121,110 @@ FP-Growth model), and prints the first `<n>` rules sorted by (1) descending ante
 
 ## 2. Clustering
 
-TBA
+We will now cluster the states based on the plants that they contain,
+using the kmeans algorithm. States will be represented by a vector of
+binary components (0/1) of dimension `D`, where `D` is the number of
+plants in the data file. The `i` coordinate in a state vector will be
+1 if and only if the `ith` plant in the dataset is present in the
+state (plants are ordered alphabetically, as in the dataset). For
+simplicity, we will initialize the kmeans algorithm randomly.
+
+### Data preparation
+
+#### Task
+
+Write a script that:
+1. creates an RDD in which every element is a dictionary representing a state with the following keys and values:
+| Key    | Value |
+|--------|:------:|
+| `name` | abbreviation of the state|
+| `<plant>` | 1 if `<plant>` occurs in the state, 0 otherwise|
+
+2. Prints the value associated with key `<key>` in the dictionary
+representing state `<state>`.
+
+You are strongly encouraged to use the RDD created here in the remainder of the assignment. 
+
+#### Required syntax
+
+`data_preparation.py <data_file> <key> <state>`
+
+#### Test
+
+`tests/test_data_preparation.py`
+
+### Distance function
+
+#### Task
+
+Write a function `distance2` that computes the squared Euclidean
+distance between two states. Write a script that prints the squared
+distance between two states.
+
+#### Required syntax
+
+`distance2.py <data_file> <state1> <state2>`
+
+#### Test
+
+`tests/test_distance.py`
+
+### Initialization 
+
+#### Task
+
+Write a script that:
+1. randomly picks `<k>` states randomly from the
+array in `answers/all_states.py` (you may import or copy this array to
+your code) using the random seed passed as argument and Python's
+`random.sample` function.
+2. prints each selected state abbreviation on a different line.
+
+In the remainder, the centroids of the kmeans
+algorithm must be initialized using the method implemented here.
+
+#### Required syntax
+
+`init.py <k> <random_seed>`
+
+#### Test
+
+`tests/test_init.py`
+
+### First iteration
+
+#### Task
+
+Write a script that (1) assigns each state to a class initialized as
+in the previous task and (2) prints the classes in alphabetical order
+(states must be ordered alphabetically within classes, and classes
+must be sorted according to the alphabetical order of their first
+state).
+
+#### Required syntax
+
+`first_iter.py <data_file> <k> <random_seed>`
+
+#### Test
+
+`tests/test_first_iter.py`
+
+### Complete kmeans
+
+#### Task
+
+Write a script that:
+1. assigns states to classes as in the first iteration.
+2. updates the centroids based on the assignments in 1.
+3. goto 1. if the assignments have not changed since the previous iteration.
+4. prints classes as in the previous task.
+
+#### Required syntax
+
+`kmeans.py <data_file> <k> <random_seed>`
+
+#### Test
+
+`tests/test_kmeans.py`
+
+
