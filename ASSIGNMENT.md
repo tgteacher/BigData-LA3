@@ -222,7 +222,7 @@ state. Check `tests/first_iteration.txt` for formatting requirements.
 Write a script that:
 1. Assigns states to classes as in the previous task.
 2. Updates the centroids based on the assignments in 1.
-3. Go to step 1 if the assignments have not changed since the previous iteration.
+3. Goes to step 1 if the assignments have not changed since the previous iteration.
 4. Prints classes as in the previous task but in an output file.
 
 #### Required syntax
