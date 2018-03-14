@@ -141,14 +141,14 @@ Write a script that:
 | `name` | abbreviation of the state|
 | `<plant>` | 1 if `<plant>` occurs in the state, 0 otherwise|
 
-2. Prints the value associated with key `<key>` in the dictionary
+2. Prints to file `<output_file>` the value associated with key `<key>` in the dictionary
 representing state `<state>`.
 
 You are strongly encouraged to use the RDD created here in the remainder of the assignment. 
 
 #### Required syntax
 
-`data_preparation.py <data_file> <key> <state>`
+`data_preparation.py <data_file> <key> <state> <output_file>`
 
 #### Test
 
