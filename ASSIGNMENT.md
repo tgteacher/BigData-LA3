@@ -6,7 +6,7 @@ With this assignment you will get a practical hands-on of frequent
 itemsets and clustering algorithms in Spark. Before starting, you may
 want to review the following definitions and algorithms:
 1. Market-basket model, association rules, confidence, interest.
-2. kmeans clustering algorithm.
+2. kmeans clustering algorithm and its Spark implementation.
 
 Important preliminary notes:
 
@@ -122,12 +122,13 @@ FP-Growth model), and prints the first `<n>` rules sorted by (1) descending ante
 ## 2. Clustering
 
 We will now cluster the states based on the plants that they contain,
-using the kmeans algorithm. States will be represented by a vector of
-binary components (0/1) of dimension `D`, where `D` is the number of
-plants in the data file. The `i` coordinate in a state vector will be
-1 if and only if the `ith` plant in the dataset is present in the
-state (plants are ordered alphabetically, as in the dataset). For
-simplicity, we will initialize the kmeans algorithm randomly.
+using the kmeans algorithm that we will re-implement. States will be
+represented by a vector of binary components (0/1) of dimension `D`,
+where `D` is the number of plants in the data file. The `i` coordinate
+in a state vector will be 1 if and only if the `ith` plant in the
+dataset is present in the state (plants are ordered alphabetically, as
+in the dataset). For simplicity, we will initialize the kmeans
+algorithm randomly.
 
 ### Data preparation
 
@@ -157,9 +158,8 @@ You are strongly encouraged to use the RDD created here in the remainder of the 
 
 #### Task
 
-Write a function `distance2` that computes the squared Euclidean
-distance between two states. Write a script that prints the squared
-distance between two states.
+Write a script that computes the squared Euclidean
+distance between two states. 
 
 #### Required syntax
 
@@ -180,8 +180,11 @@ your code) using the random seed passed as argument and Python's
 `random.sample` function.
 2. prints each selected state abbreviation on a different line.
 
-In the remainder, the centroids of the kmeans
-algorithm must be initialized using the method implemented here.
+In the remainder, the centroids of the kmeans algorithm must be
+initialized using the method implemented here, perhaps using a line
+such as: `centroids = rdd.filter(lambda x: x['name'] in
+init_states).collect()`, where `rdd` is the RDD created in the data
+preparation task.
 
 #### Required syntax
 
@@ -195,11 +198,13 @@ algorithm must be initialized using the method implemented here.
 
 #### Task
 
-Write a script that (1) assigns each state to a class initialized as
-in the previous task and (2) prints the classes in alphabetical order
-(states must be ordered alphabetically within classes, and classes
+Write a script that:
+1. assigns each state to its 'closest' class where 'closest' means 'the class corresponding to the centroid closest to the state according to the distance defined in the distance function task'. Centroids must be initialized as
+in the previous task.
+2. prints the classes in alphabetical order: 
+states must be ordered alphabetically within classes, and classes
 must be sorted according to the alphabetical order of their first
-state).
+state. Check `tests/first_iteration.txt` for formatting requirements.
 
 #### Required syntax
 
@@ -214,14 +219,14 @@ state).
 #### Task
 
 Write a script that:
-1. assigns states to classes as in the first iteration.
+1. assigns states to classes as in the previous task.
 2. updates the centroids based on the assignments in 1.
-3. goto 1. if the assignments have not changed since the previous iteration.
-4. prints classes as in the previous task.
+3. go to step 1 if the assignments have not changed since the previous iteration.
+4. prints classes as in the previous task but in an output file.
 
 #### Required syntax
 
-`kmeans.py <data_file> <k> <random_seed>`
+`kmeans.py <data_file> <k> <random_seed> <output_file>`
 
 #### Test
 
