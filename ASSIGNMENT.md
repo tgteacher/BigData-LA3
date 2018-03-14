@@ -124,9 +124,9 @@ FP-Growth model), and prints the first `<n>` rules sorted by (1) descending ante
 We will now cluster the states based on the plants that they contain,
 using the kmeans algorithm that we will re-implement. States will be
 represented by a vector of binary components (0/1) of dimension `D`,
-where `D` is the number of plants in the data file. The `i` coordinate
+where `D` is the number of plants in the data file. Coordinate `i`
 in a state vector will be 1 if and only if the `ith` plant in the
-dataset is present in the state (plants are ordered alphabetically, as
+dataset was found in the state (plants are ordered alphabetically, as
 in the dataset). For simplicity, we will initialize the kmeans
 algorithm randomly.
 
@@ -135,9 +135,10 @@ algorithm randomly.
 #### Task
 
 Write a script that:
-1. creates an RDD in which every element is a dictionary representing a state with the following keys and values:
+1. Creates an RDD in which every element is a dictionary representing a state with the following keys and values:
+
 | Key    | Value |
-|--------|:------:|
+|--------|------|
 | `name` | abbreviation of the state|
 | `<plant>` | 1 if `<plant>` occurs in the state, 0 otherwise|
 
@@ -174,11 +175,11 @@ distance between two states.
 #### Task
 
 Write a script that:
-1. randomly picks `<k>` states randomly from the
+1. Randomly picks `<k>` states randomly from the
 array in `answers/all_states.py` (you may import or copy this array to
 your code) using the random seed passed as argument and Python's
 `random.sample` function.
-2. prints each selected state abbreviation on a different line.
+2. Prints each selected state abbreviation on a different line.
 
 In the remainder, the centroids of the kmeans algorithm must be
 initialized using the method implemented here, perhaps using a line
@@ -199,9 +200,9 @@ preparation task.
 #### Task
 
 Write a script that:
-1. assigns each state to its 'closest' class where 'closest' means 'the class corresponding to the centroid closest to the state according to the distance defined in the distance function task'. Centroids must be initialized as
+1. Assigns each state to its 'closest' class where 'closest' means 'the class corresponding to the centroid closest to the state according to the distance defined in the distance function task'. Centroids must be initialized as
 in the previous task.
-2. prints the classes in alphabetical order: 
+2. Prints the classes in alphabetical order: 
 states must be ordered alphabetically within classes, and classes
 must be sorted according to the alphabetical order of their first
 state. Check `tests/first_iteration.txt` for formatting requirements.
@@ -219,10 +220,10 @@ state. Check `tests/first_iteration.txt` for formatting requirements.
 #### Task
 
 Write a script that:
-1. assigns states to classes as in the previous task.
-2. updates the centroids based on the assignments in 1.
-3. go to step 1 if the assignments have not changed since the previous iteration.
-4. prints classes as in the previous task but in an output file.
+1. Assigns states to classes as in the previous task.
+2. Updates the centroids based on the assignments in 1.
+3. Goes to step 1 if the assignments have not changed since the previous iteration.
+4. Prints classes as in the previous task but in an output file.
 
 #### Required syntax
 
