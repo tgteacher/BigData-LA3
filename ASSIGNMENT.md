@@ -237,7 +237,7 @@ Write a script that:
 
 Here is a visualization of the clustering obtained in the previous
 task, obtained with R's 'maps' package (Canadian provinces, Alaska and
-Hawaii couldn't be represented). The classes seem to make sense from a
+Hawaii couldn't be represented and a different seed than used in the tests was used). The classes seem to make sense from a
 geographical point of view!
 
 ![kmeans result](https://users.encs.concordia.ca/~tglatard/teaching/big-data/winter-2018/images/states.png)

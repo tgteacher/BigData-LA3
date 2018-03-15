@@ -1,6 +1,6 @@
 * Class 0
-ab ak al ar bc ct dc de dengl fl fraspm ga hi ia il in ks ky la lb ma mb md me mi mn mo ms nb nc nd ne nf nh nj ns nt nu ny oh ok on pa pr qc ri sc sd sk tn tx va vi vt wa wi wv yt 
+ab ak az bc ca co dengl fraspm ia id ks lb mb mn mt nd ne nf nm nt nu nv ok or sd sk tx ut wa wy yt 
 * Class 1
-az ca nm 
+al ar ct dc de fl ga il in ky la ma md me mi mo ms nb nc nh nj ns ny oh on pa qc ri sc tn va vt wi wv 
 * Class 2
-co id mt nv or ut wy 
+hi pr vi 
