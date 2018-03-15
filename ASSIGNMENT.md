@@ -200,8 +200,8 @@ preparation task.
 #### Task
 
 Write a script that:
-1. Assigns each state to its 'closest' class where 'closest' means 'the class corresponding to the centroid closest to the state according to the distance defined in the distance function task'. Centroids must be initialized as
-in the previous task.
+1. Assigns each state that appears in `data/stateabbr.txt` to its 'closest' class where 'closest' means 'the class corresponding to the centroid closest to the state according to the distance defined in the distance function task'. Centroids must be initialized as
+in the previous task. Note that some states in the data set are not in `data/stateabbr.txt`: you must ignore them.
 2. Prints the classes in alphabetical order: 
 states must be ordered alphabetically within classes, and classes
 must be sorted according to the alphabetical order of their first
