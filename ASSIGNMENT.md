@@ -140,7 +140,7 @@ Write a script that:
 | Key    | Value |
 |--------|------|
 | `name` | abbreviation of the state|
-| `<plant>` | 1 if `<plant>` occurs in the state, no entry otherwise|
+| `<plant>` | 1 if `<plant>` occurs in the state, 0 otherwise|
 
 2. Prints to file `<output_file>` the value associated with key `<key>` in the dictionary
 representing state `<state>`.
