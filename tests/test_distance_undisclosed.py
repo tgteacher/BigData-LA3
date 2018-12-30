@@ -1,16 +1,9 @@
-import subprocess, os
+import sys
+sys.path.insert(0, './answers')
+from answer import distance2
 
 def test_distance():
-    command="python ./answers/distance2.py ./data/plants.data qc ca"
-    process = subprocess.Popen(command, shell=True,stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    code=process.wait()
-    assert(not code), "Command failed"
-    assert(process.stdout.read().decode("utf-8")=="12284"+os.linesep)
-
-    command="python ./answers/distance2.py ./data/plants.data on vt"
-    process = subprocess.Popen(command, shell=True,stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    code=process.wait()
-    assert(not code), "Command failed"
-    assert(process.stdout.read().decode("utf-8")=="2267"+os.linesep)
-
-
+    a = distance2("./data/plants.data", "qc", "ca")
+    assert(a == 12284)
+    a = distance2("./data/plants.data", "on", "vt")
+    assert(a == 2267)
