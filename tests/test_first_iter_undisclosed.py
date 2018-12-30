@@ -1,8 +1,8 @@
-import subprocess, os
+import sys
+sys.path.insert(0, './answers')
+from answer import first_iter
 
 def test_first_iter():
-    command="python ./answers/first_iter.py ./data/plants.data 4 1234"
-    process = subprocess.Popen(command, shell=True,stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    code=process.wait()
-    assert(not code), "Command failed"
-    assert(process.stdout.read().decode("utf-8")==open("tests/first_iter_undisclosed.txt","r").read())
+    res = {'nb': ['dengl', 'fraspm', 'lb', 'me', 'mn', 'nb', 'nf', 'nh', 'ns', 'nu', 'on', 'qc', 'ri', 'vt'], 'in': ['al', 'ar', 'ct', 'dc', 'de', 'fl', 'ga', 'ia', 'il', 'in', 'ks', 'ky', 'la', 'ma', 'md', 'mi', 'mo', 'ms', 'nc', 'ne', 'nj', 'ny', 'oh', 'ok', 'pa', 'sc', 'tn', 'tx', 'va', 'wi', 'wv'], 'ab': ['ab', 'ak', 'az', 'bc', 'ca', 'co', 'id', 'mb', 'mt', 'nd', 'nm', 'nt', 'nv', 'or', 'sd', 'sk', 'ut', 'wa', 'wy', 'yt'], 'hi': ['hi', 'pr', 'vi']}
+    a = first_iter("./data/plants.data", 4, 1234)
+    assert(a == res)
