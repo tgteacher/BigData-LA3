@@ -189,11 +189,11 @@ preparation task.
 
 #### Required syntax
 
-`init.py <k> <random_seed>`
+`def init_centroids(k, random_seed)`
 
 #### Test
 
-`tests/test_init.py`
+`tests/test_init_centroids.py`
 
 ### First iteration
 
