@@ -1,27 +1,16 @@
 import os
-import time
-from pyspark.sql import DataFrame
-from pyspark.rdd import RDD
-from pyspark.sql.functions import desc, size
-from pyspark.sql import SparkSession
-from pyspark.sql import Row
-from pyspark.ml.fpm import FPGrowth
-import pyspark
-import random
 import sys
 import copy
-from pathlib import Path
+import time
+import random
+import pyspark
 from statistics import mean
-
-def timing(f):
-    def wrap(*args):
-        time1 = time.time()
-        ret = f(*args)
-        time2 = time.time()
-        print('{:s} function took {:.3f} ms'.format(f.__name__, (time2-time1)*1000.0))
-
-        return ret
-    return wrap
+from pyspark.rdd import RDD
+from pyspark.sql import Row
+from pyspark.sql import DataFrame
+from pyspark.sql import SparkSession
+from pyspark.ml.fpm import FPGrowth
+from pyspark.sql.functions import desc, size
 
 spark = SparkSession \
     .builder \
@@ -29,14 +18,6 @@ spark = SparkSession \
     .config("spark.some.config.option", "some-value") \
     .getOrCreate()
 sc = spark.sparkContext
-
-list_of_states = [ "ab", "ak", "ar", "az", "ca", "co", "ct", "de", "dc", "fl",
-           "ga", "hi", "id", "il", "in", "ia", "ks", "ky", "la", "me", "md",
-           "ma", "mi", "mn", "ms", "mo", "mt", "ne", "nv", "nh", "nj", "nm",
-           "ny", "nc", "nd", "oh", "ok", "or", "pa", "pr", "ri", "sc", "sd",
-           "tn", "tx", "ut", "vt", "va", "vi", "wa", "wv", "wi", "wy", "al",
-           "bc", "mb", "nb", "lb", "nf", "nt", "ns", "nu", "on", "qc", "sk",
-           "yt", "dengl", "fraspm" ]
 
 def toCSVLineRDD(rdd):
     a = rdd.map(lambda row: ",".join([str(elt) for elt in row]))\
