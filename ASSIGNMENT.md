@@ -57,10 +57,6 @@ Write a script that prints the first `<n>` rows of a DataFrame with the followin
 2. `<plant>`: the name of the plant associated to basket.
 3. `<items>`: the items (states) in the basket, ordered as in the data file. 
 
-#### Required syntax
-
-`data_frame.py <data_file> <n>`
-
 #### Test
 
 `tests/test_data_frame.py`
@@ -76,10 +72,6 @@ using min support `<s>` and min confidence `<c>` (parameters of the
 FP-Growth model), sorted by (1) descending itemset size, and (2)
 descending frequency. The FP-Growth model should be applied to the DataFrame computed in the previous task.
 
-#### Required syntax
-
-`frequent_itemsets.py <data_file> <n> <s> <c>`
-
 #### Test
 
 `tests/test_frequent_items.py`
@@ -93,10 +85,6 @@ write a script that prints the first `<n>` association rules obtained
 using min support `<s>` and min confidence `<c>` (parameters of the
 FP-Growth model), sorted by (1) descending antecedent size in association rule, and (2)
 descending confidence.
-
-#### Required syntax
-
-`association_rules.py <data_file> <n> <s> <c>`
 
 #### Test
 
@@ -134,22 +122,13 @@ algorithm randomly.
 
 #### Task
 
-Write a script that:
-1. Creates an RDD in which every element is a dictionary representing a state with the following keys and values:
+Creates an RDD in which every element is a tuple with the state as first element and a dictionary representing a vector of plant as a second element:
+(name of the state, {dictionary})
 
-| Key    | Value |
-|--------|------|
-| `name` | abbreviation of the state|
-| `<plant>` | 1 if `<plant>` occurs in the state, 0 otherwise|
+The dictionary should contains the plant names as a key.
+The corresponding value should be 1 if the plant occurs in the state of the tuple and 0 otherwise.
 
-2. Prints to file `<output_file>` the value associated with key `<key>` in the dictionary
-representing state `<state>`.
-
-You are strongly encouraged to use the RDD created here in the remainder of the assignment. 
-
-#### Required syntax
-
-`data_preparation.py <data_file> <key> <state> <output_file>`
+You are strongly encouraged to use the RDD created here in the remainder of the assignment.
 
 #### Test
 
@@ -162,10 +141,6 @@ You are strongly encouraged to use the RDD created here in the remainder of the 
 Write a script that computes the squared Euclidean
 distance between two states. 
 
-#### Required syntax
-
-`distance2.py <data_file> <state1> <state2>`
-
 #### Test
 
 `tests/test_distance.py`
@@ -174,12 +149,9 @@ distance between two states.
 
 #### Task
 
-Write a script that:
-1. Randomly picks `<k>` states randomly from the
-array in `answers/all_states.py` (you may import or copy this array to
-your code) using the random seed passed as argument and Python's
-`random.sample` function.
-2. Prints each selected state abbreviation on a different line.
+This function should randomly picks `<k>` states from the array in `answers/all_states.py` (you
+may import or copy this array to your code) using the random seed passed as
+argument and Python's `random.sample` function.
 
 In the remainder, the centroids of the kmeans algorithm must be
 initialized using the method implemented here, perhaps using a line
@@ -187,9 +159,9 @@ such as: `centroids = rdd.filter(lambda x: x['name'] in
 init_states).collect()`, where `rdd` is the RDD created in the data
 preparation task.
 
-#### Required syntax
-
-`def init_centroids(k, random_seed)`
+Note that if your array of states have all the states, but not in the same
+order as the array in `answers/all_states.py` you may fail the test case or
+have issues in the next questions.
 
 #### Test
 
@@ -199,17 +171,14 @@ preparation task.
 
 #### Task
 
-Write a script that:
-1. Assigns each state that appears in `data/stateabbr.txt` to its 'closest' class where 'closest' means 'the class corresponding to the centroid closest to the state according to the distance defined in the distance function task'. Centroids must be initialized as
-in the previous task. Note that some states in the data set are not in `data/stateabbr.txt`: you must ignore them.
-2. Prints the classes in alphabetical order: 
-states must be ordered alphabetically within classes, and classes
-must be sorted according to the alphabetical order of their first
-state. Check `tests/first_iteration.txt` for formatting requirements.
+Assigns each state that appears to its 'closest' class where 'closest'
+means 'the class corresponding to the centroid closest to the state
+according to the distance defined in the distance function task'. Centroids
+must be initialized as in the previous task.
 
-#### Required syntax
-
-`first_iter.py <data_file> <k> <random_seed>`
+This function should return a dictionary with `k` entries:
+- The key is one of the states choosen as a centroid.
+- The value is a list of states that are the closest to the centroid. The list should be alphabetically sorted.
 
 #### Test
 
@@ -219,15 +188,18 @@ state. Check `tests/first_iteration.txt` for formatting requirements.
 
 #### Task
 
-Write a script that:
-1. Assigns states to classes as in the previous task.
-2. Updates the centroids based on the assignments in 1.
-3. Goes to step 1 if the assignments have not changed since the previous iteration.
-4. Prints classes as in the previous task but in an output file.
+Write a function that:
+1. Initializes `k` centroids.
+2. Assigns states to these centroids as in the previous task.
+3. Updates the centroids based on the assignments in 2.
+4. Goes to step 2 if the assignments have not changed since the previous iteration.
+5. Return the `k` classes.
 
-#### Required syntax
+Note: You should use the list of states provided in all_states.py to ensure the same initialisation is made.
 
-`kmeans.py <data_file> <k> <random_seed> <output_file>`
+This function should return a list of list where each sub-list contains all states (alphabetically sorted) of one class.
+Example: [["qc", "on"], ["az", "ca"]]
+In this example, there is two classes, one containing the states "qc" and "on", another one containing the states "az" and "ca".
 
 #### Test
 
