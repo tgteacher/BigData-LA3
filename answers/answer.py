@@ -10,7 +10,7 @@ from pyspark.sql import Row
 from pyspark.sql import DataFrame
 from pyspark.sql import SparkSession
 from pyspark.ml.fpm import FPGrowth
-from pyspark.sql.functions import desc, size
+from pyspark.sql.functions import desc, size, max, abs
 
 '''
 INTRODUCTION
@@ -52,8 +52,9 @@ def init_spark():
 
 def toCSVLineRDD(rdd):
     a = rdd.map(lambda row: ",".join([str(elt) for elt in row]))\
-           .reduce(lambda x,y: "\n".join([x,y]))
-    return a + "\n"
+           .reduce(lambda x,y: os.linesep.join([x,y]))
+    return a + os.linesep
+
 def toCSVLine(data):
     if isinstance(data, RDD):
         if data.count() > 0:
@@ -81,9 +82,11 @@ scope to show how frequent itemset mining can be used in a variety of
 contexts.
 '''
 
-def data_preparation(filename, n):
+def data_frame(filename, n):
     '''
-    Write a function that returns a CSV string representing the first <n> rows of a DataFrame with the following columns:
+    Write a function that returns a CSV string representing the first 
+    <n> rows of a DataFrame with the following columns,
+    ordered by increasing values of <id>:
     1. <id>: the id of the basket in the data file, i.e., its line number - 1 (ids start at 0).
     2. <plant>: the name of the plant associated to basket.
     3. <items>: the items (states) in the basket, ordered as in the data file.
@@ -151,6 +154,10 @@ state vector will be 1 if and only if the ith plant in the dataset was
 found in the state (plants are ordered alphabetically, as in the 
 dataset). For simplicity, we will initialize the kmeans algorithm 
 randomly.
+
+An example of clustering result can be visualized in states.png in this
+repository (for technical reasons, it only shows the US states, apologies
+for any inconvenience :) )
 '''
 
 def data_preparation(filename, plant, state):
