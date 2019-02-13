@@ -155,9 +155,11 @@ found in the state (plants are ordered alphabetically, as in the
 dataset). For simplicity, we will initialize the kmeans algorithm 
 randomly.
 
-An example of clustering result can be visualized in states.png in this
-repository (for technical reasons, it only shows the US states, apologies
-for any inconvenience :) )
+An example of clustering result can be visualized in states.png in this 
+repository. This image was obtained with R's 'maps' package (Canadian 
+provinces, Alaska and Hawaii couldn't be represented and a different 
+seed than used in the tests was used). The classes seem to make sense 
+from a geographical point of view!
 '''
 
 def data_preparation(filename, plant, state):
