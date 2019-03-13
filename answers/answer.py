@@ -147,7 +147,7 @@ def interests(filename, n, s, c):
 PART 2: CLUSTERING
 
 We will now cluster the states based on the plants that they contain.
-We will reimplemented and use the kmeans algorithm. States will be 
+We will reimplement and use the kmeans algorithm. States will be 
 represented by a vector of binary components (0/1) of dimension D, 
 where D is the number of plants in the data file. Coordinate i in a 
 state vector will be 1 if and only if the ith plant in the dataset was 
@@ -169,9 +169,9 @@ def data_preparation(filename, plant, state):
     of plant as a second element:
     (name of the state, {dictionary})
 
-    The dictionary should contains the plant names as a key. The 
-    corresponding value should be 1 if the plant occurs in the state of 
-    the tuple and 0 otherwise.
+    The dictionary should contains the plant names as keys. The 
+    corresponding values should be 1 if the plant occurs in the state 
+    represented by the tuple.
 
     You are strongly encouraged to use the RDD created here in the 
     remainder of the assignment.
@@ -200,7 +200,7 @@ def init_centroids(k, seed):
 
     In the remainder, the centroids of the kmeans algorithm must be
     initialized using the method implemented here, perhaps using a line
-    such as: `centroids = rdd.filter(lambda x: x['name'] in
+    such as: `centroids = rdd.filter(lambda x: x[0] in
     init_states).collect()`, where 'rdd' is the RDD created in the data
     preparation task.
 
