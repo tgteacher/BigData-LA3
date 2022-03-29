@@ -51,9 +51,9 @@ def init_spark():
     return spark
 
 def toCSVLineRDD(rdd):
-    a = rdd.map(lambda row: ",".join([str(elt) for elt in row]))\
-           .reduce(lambda x,y: os.linesep.join([x,y]))
-    return a + os.linesep
+    a = rdd.map(lambda row: ",".join([str(elt) for elt in row])) \
+        .reduce(lambda x, y: '\n'.join([x, y]))
+    return a + '\n'
 
 def toCSVLine(data):
     if isinstance(data, RDD):
