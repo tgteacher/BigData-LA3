@@ -67,7 +67,7 @@ it is also radical and you should be very meticulous with your coding:
 make a single syntax error in your answer file, such as a spurious 
 tabulation character, and all the tests will fail! To avoid that kind 
 of surprises, you are strongly encouraged to check the output of the 
-tests on [Travis CI](https://travis-ci.com/tgteacher) regularly.    
+tests on Github Actions regularly.    
 
 #### Exceptions
 
@@ -88,21 +88,20 @@ but in general be cool: if you don't aim at cheating, you probably won't :)
  
 ### Test environment and live feedback
 
-Your code will be tested with Python 3.6 in a Ubuntu environment 
-provided by Travis CI. It is your responsibility to ensure that the 
+Your code will be tested with Python 3.8 in a Ubuntu environment 
+provided by Github Actions. It is your responsibility to ensure that the 
 tests will pass in this environment. The following resources will help 
 you.
 
-Python 3.6 is available in the computer labs and can be loaded using 
-`module load python/3.6`. You can check the version of Python that 
+Python 3.8 is available in the computer labs and can be loaded using 
+`module load python/3.8`. You can check the version of Python that 
 you are using by running `python --version`. Computer labs can easily be
 accessed remotely, using `ssh`.
 
 It is strongly suggested that you run the disclosed tests before 
 submitting your assignment, using `pytest` as explained previously. 
 
-Live feedback on your assignment is provided through Travis CI 
-[here](https://travis-ci.com/tgteacher). You will have to sign-in using 
+Live feedback on your assignment is provided through Github Actions. You will have to sign-in using 
 your GitHub account to see your assignment repository. **Your grade will be determined 
 from the result of the
-tests executed in Travis CI**.
+tests executed in Github Actions**.

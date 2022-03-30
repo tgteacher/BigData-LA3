@@ -1,5 +1,6 @@
 import sys
-sys.path.insert(0, './answers')
+import os
+sys.path.insert(0, os.path.join('.', 'answers'))
 from answer import init_centroids
 
 def test_init_centroids():
