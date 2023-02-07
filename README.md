@@ -27,7 +27,7 @@ and clone it using `git clone <repo_url>`.
 ## Assignment submission
 
 You have to submit your assignment through GitHub classroom, using the following procedure:
-1. Accept the assignment at https://classroom.github.com/a/gfUCQ6fv. This will create your own copy
+1. Accept the assignment at https://classroom.github.com/a/QjJKjzaG. This will create your own copy
    of the assignment repository, located at http://github.com/tgteacher/bigdata-la3-your_github_username.
 2. Clone your copy of the assignment repository on your computer, and 
 implement the functions in `answers/answer.py`, following the instructions in the 
@@ -35,10 +35,6 @@ documentation strings. A skeleton of your answer file already exists in file `an
   with the required syntax for each function.
 3. Commit your solution to your local copy of the assignment repository.
 4. Push your solution to your GitHub copy of the assignment repository.
-
-**Important**: please make sure that the email address you use in Moodle is
-added to your GitHub account (you can add multiple addresses to your 
-GitHub account).
 
 You can repeat steps 3 and 4 as many times as you wish. Your assignment 
 will be graded based on a snapshot of your repository taken on the 
@@ -55,7 +51,8 @@ Your assignment will be automatically graded through software tests.
 The tests are already available in directory `tests`. You
 may want to run them as you implement your solution, to check that your
 code passes them. To do so, you will have to install `pytest` and simply
-run `pytest tests` in the base directory of the assignment. 
+run `pytest tests` in the base directory of the assignment. Alternatively, you
+can install [`act`](https://github.com/nektos/act) to run the GitHub action locally.
 
 Your grade will be determined from the number of passing tests as 
 returned by pytest. All tests will contribute equally to the final 
@@ -67,7 +64,7 @@ it is also radical and you should be very meticulous with your coding:
 make a single syntax error in your answer file, such as a spurious 
 tabulation character, and all the tests will fail! To avoid that kind 
 of surprises, you are strongly encouraged to check the output of the 
-tests through Github Actions regularly.
+tests on GitHub actions regularly.
 
 #### Exceptions
 
@@ -87,19 +84,12 @@ but in general be cool: if you don't aim at cheating, you probably won't :)
 
  
 ### Test environment and live feedback
-
-Your code will be tested with Python 3.8 in a Ubuntu environment 
-with Github Actions. It is your responsibility to ensure that the 
-tests will pass in this environment. The following resources will help 
-you.
-
-Python 3.8 is available in the computer labs and can be loaded using 
-`module load python/3.8.1`. You can check the version of Python that 
-you are using by running `python --version`. Computer labs can easily be
-accessed remotely, using `ssh`.
-
+Your code will be tested with Python 3.10. It is your responsibility to
+ensure that the tests will pass in this environment. Live feedback on your
+assignment is provided through GitHub actions. **Your grade will be
+determined from the result of the tests executed in GitHub actions**.
 It is strongly suggested that you run the disclosed tests before 
-submitting your assignment, using `pytest` as explained previously. 
+submitting your assignment, using `pytest` or `act` as explained previously.
 
 **Your grade will be determined 
 from the result of the
