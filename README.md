@@ -27,7 +27,8 @@ and clone it using `git clone <repo_url>`.
 ## Assignment submission
 
 You have to submit your assignment through GitHub classroom, using the following procedure:
-1. Accept the assignment at https://classroom.github.com/a/QjJKjzaG. This will create your own copy
+
+1. Accept the assignment at <https://classroom.github.com/a/UNEV5Q0k>. This will create your own copy
    of the assignment repository, located at http://github.com/tgteacher/bigdata-la3-your_github_username.
 2. Clone your copy of the assignment repository on your computer, and 
 implement the functions in `answers/answer.py`, following the instructions in the 
